@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block title %}Nueva publicación{% endblock %}
+
+{% block content %}
+<main role="main">
+    <div class="container color-content">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <form action="" enctype='multipart/form-data' method="POST">
+                    {% csrf_token %}
+                    {{blogForm.media}}
+                    
+                    {% for field in blogForm %}
+                        {{ field|bootstrap }} </br>
+                    {% endfor %}
+
+                    <div class="text-center mb-5">
+                        <input type="submit" class="btn btn-primary btn-block" value="Publicar"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

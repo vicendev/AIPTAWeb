@@ -1,0 +1,115 @@
+{% extends 'core/base.html' %}
+{% load static  %}
+
+{% block title %}Publicaciones{% endblock title %}
+
+{% block content %}
+<section>
+
+  <div class="container color-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bg-faded rounded p-5 text-center">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Revista El Caballo Azul
+              </span>
+            </h2>
+            <div class="text-left ml-5">
+            <p>La Revista <b><i>El Caballo azul</i></b> es uno de los medios de expresión y difusión de los integrantes de la Asociación Internacional Psicoanálisis a Través del Arte, organización abierta y relacionada con distintas Escuelas Psicoanalíticas, desde la visión que éstas tienen de la cultura. </p>
+            <p>Su difusión <b><i>on líne</i></b> es internacional y su acceso libre. En sus páginas, se publican contribuciones de profesionales de diverso origen y que adhieran al psicoanálisis como teoría de base y en lo posible dentro del paradigma de la complejidad o del Psicoanálisis de conceptos ampliados. </p><br/>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalSuscribir">
+                ¡Suscríbase!
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container color-content">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="bg-faded rounded p-5 text-center">
+            {% if user.is_staff %}
+            <p><a href="http://fliphtml5.com/login.php" target="_blank">Subir publicaciones</a></p>
+            {% endif %}
+            <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src='http://fliphtml5.com/bookcase/pnlhu' 
+            seamless='seamless' scrolling='no' frameborder='0' allowtransparency='true' allowfullscreen ></iframe><br>
+            </div>
+            <p>Instrucciones para descargar PDF</p>  
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Instrucciones
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+        <!-- Modal instrucciones -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header instrucciones -->
+          <div class="modal-header">
+            <h4 class="modal-title">Instrucciones</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body instrucciones -->
+          <div class="modal-body">
+            <li><b>1°:</b> Debe seleccionar un libro</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf1.png' %}"><br><br>
+            <li><b>2°:</b> Hacer click en la impresora </li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf2.png' %}"><br><br>
+            <li><b>3°:</b> Checkear "Print All Pages" y click en "Print"</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf3.png' %}"><br><br>
+            <li><b>4°:</b> Seleccionar "Guardar como PDF"</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf4.png' %}"><br><br>
+            <li><b>5°:</b> Click en el botón "Guardar"</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf5.png' %}"><br><br>
+            <li><b>6°:</b> Lugar donde quiere guardar su documento, Escoger Nombre y Guardar</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf6.png' %}" width="80%" height="80%"><br><br>
+            <li><b>7°:</b> Ir a carpeta destino y ¡Voila!</li>
+            <img class="image-fluid" src="{% static 'core/img/instructions/scr_pdf7.png' %}"><br><br>    
+          </div>
+
+          <!-- Modal footer instrucciones -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal Suscribase -->
+    <div class="modal" id="modalSuscribir">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Suscríbase</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>  
+          </div>
+          <div class="modal-body">
+            <form action="" method="POST">
+              {% csrf_token %}
+              
+              {{subscriptionForm}}
+              <br>
+              <input type="submit" class="btn btn-primary btn-block" value="Envíar"/>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          </div>  
+        </div>
+      </div> 
+    </div>
+</section>
+
+{% endblock content %}

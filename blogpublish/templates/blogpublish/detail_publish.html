@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load filename %}
+{% load bootstrap %}
+
+{% block content %}
+ <div class="container color-content">
+    <div class="row">
+        <div class="col-12 mt-2">
+            <div class="pt-5 pl-5 pr-5 pb-2 text-center">
+                <h2 class="section-heading">
+                    <span class="section-heading-upper text-center">{{post.title}}</span>
+                </h2>
+            </div>
+        <div class="col-12 mb-3">
+            <p>{{post.content|safe}}</p>
+            <p>Ver Publicación: {% if post.pdfFile %}<a href="{{post.pdfFile.url}}" target="_blank">{{post.pdfFile|filename}}</a> {% else %} No existe archivo disponible {% endif %}</p>
+        </div>
+        {% if user.is_staff %}
+        <a href="{% url 'update-publish' post.pk %}" class="mb-2 btn btn-success">Editar Publicación</a>
+        <a href="{% url 'delete-publish' post.pk %}" class="mb-2 btn btn-danger">Eliminar Publicación</a>
+        {% endif %}
+        </div>
+    </div>
+ </div>
+
+{% endblock %}

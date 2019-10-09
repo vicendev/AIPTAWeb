@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Revista - El Caballo Azul{% endblock title %}
+
+{% block content %}
+    <section>
+      <div class="container color-content">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="bg-faded rounded p-5 text-center">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">Consultorio Clínico</span>
+                </h2>
+                <div class="text-left ml-5">
+                  <div class="row">
+                      <div class="col-lg-4">
+                          <img class="img-fluid mt-3" src="{% static 'core/img/Consultorio.jpg'%}" alt="">
+                      </div>
+                      <div class="col-lg-8">
+                        <p>La asociación cuenta con un consultorio de atención psicoterapeutica, 
+                            en sus modalidad individual, grupal y a través del arte.
+                            La atención esta referida a niños, adolescentes y adultos. 
+                            Las prestaciones son realizadas por miembros de nuestra agrupación y profesionales 
+                            que se encuentran realizando su especialización.
+                          </p>
+                          <p>
+                              Para mayor información llamar al 982050454 o escribir al correo consultorio@aipsoaarte.org / consultorioatravesdelartec@gmail.com
+                          </p>
+                      </div>      
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

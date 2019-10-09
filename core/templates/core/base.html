@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %} | AIPTA</title>
+
+    {% load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Fuentes -->
+    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Lightbox -->
+    <link rel="stylesheet" href="{% static 'core/vendor/lightbox/css/lightbox.css' %}">
+
+    <!-- Estilos -->
+    <link href="{% static 'core/css/master.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+  <div class="container header-image">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="site-heading text-center text-white d-none d-lg-block">
+          <span class="site-heading-upper">
+            <a href="{% url 'home' %}" ><img class="img-fluid mr-2 img-logo" src="{% static 'core/img/logo.png' %}" alt="Logo"></a>
+             Asociación internacional Psicoanálisis a través del arte
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-1" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home' %}"><img src="{% static 'core/img/logo.png' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown px-lg-5 {% if request.path == '/' %}active{% endif %}">
+              <a class="nav-link dropdown-toggle text-uppercase text-expanded" data-toggle="dropdown" href="#">Inicio</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'home' %}">Presentación</a>
+                <a class="dropdown-item" href="{% url 'announcement' %}">Convocatoria Internacional</a>
+                <a class="dropdown-item" href="{% url 'history' %}">Historia</a>
+              </div>
+            </li>
+            <!--<li class="nav-item px-lg-4 {% if request.path == '/about/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'about' %}">Somos</a>
+            </li>-->
+            <li class="nav-item dropdown px-lg-5 {% if request.path == '/publish/' %}active{% endif %}">
+              <a class="nav-link dropdown-toggle text-uppercase text-expanded" data-toggle="dropdown" href="#">Biblioteca</a> <!--"Rev Caballo Azul" y "Publicaciones"-->
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'publish' %}">Revista Caballo Azul</a>
+                <a class="dropdown-item" href="{% url 'publish-posts' %}">Otras Publicaciones</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown px-lg-5 {% if request.path == '/formation/' %}active{% endif %}">
+              <a class="nav-link dropdown-toggle text-uppercase text-expanded" data-toggle="dropdown" href="{% url 'formations' %}">Seminarios</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'formations' %}">Seminario permanente</a>
+                <a class="dropdown-item" href="{% url 'seminars' %}">Seminarios cortos</a>
+              </div>
+            </li>
+            <!--<li class="nav-item px-lg-4 {% if request.path == '/seminar/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'seminars' %}">Seminarios</a>
+            </li>-->
+            <!--<li class="nav-item px-lg-4 {% if request.path == '/announcement/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'announcement' %}">Convocatoria internacional</a>
+            </li>-->
+            <li class="nav-item px-lg-5 {% if request.path == '/clinical-office/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'clinical-office' %}">Consultorio</a>
+            </li>
+            <li class="nav-item px-lg-5 {% if request.path == '/contact/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'contact' %}">Contáctenos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <hr>
+    <!-- Pié de página -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 mbt1">&copy; ASOCIACIÓN INTERNACIONAL PSICOANALISIS A TRAVÉS DEL ARTE 2019</p>
+        <a href="{% url 'admin:index' %}">Login</a>
+      </div>
+  	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'core/vendor/lightbox/js/lightbox.js' %}"></script>
+
+  </body>
+</html>
