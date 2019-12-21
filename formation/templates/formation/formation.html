@@ -22,7 +22,7 @@
                     <div class="carousel-inner ml-4">
                     {% for formation in formations %}
                         <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                                <img class="fill" src="{% if formation.image %}{{formation.image.url}}{% else %}{% static 'core/img/no-image.png'%} {% endif%}" alt="{{ formation.title }}">
+                                <img class="img-formation" src="{% if formation.image %}{{formation.image.url}}{% else %}{% static 'core/img/no-image.png'%} {% endif%}" alt="{{ formation.title }}">
                             <div class="carousel-caption text-carousel rounded">
                                 <h3 class="title-formation">{{ formation.title }}</h3>
                                 <p class="carousel-p">{{ formation.content|truncatewords:50 }}</p>

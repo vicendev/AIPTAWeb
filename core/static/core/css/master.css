@@ -43,11 +43,11 @@ body {
   }
 }
 
-/* .img-formation{
+.img-formation{
   width: 100%;
   height: 42vw;
   object-fit: cover;
-} */
+}
 
 .img-home{
   width: 100%;
@@ -80,6 +80,12 @@ body {
   .img-consultorio{
     margin-bottom: 30px;
     border:3px solid rgb(34, 68, 107);
+  }
+
+  .img-formation{
+    width:100%;
+    height:500px;
+    object-fit: fill;
   }
 }
 
