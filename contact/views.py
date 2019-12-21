@@ -15,12 +15,12 @@ def contact(request):
             name = request.POST.get('name','')
             email = request.POST.get('email','')
             content = request.POST.get('content','')
-
             # Enviamos correo y redireccionamos
             email = EmailMessage(
                 "Psico Arte: Nuevo mensaje de contacto",
                 "De {} <{}>\n\nEscribió:\n\n{}".format(name, email, content),
                 "no-contestar@aipsicoaarte.org",
+                ['vicenmoyano.upla@gmail.com'],
                 reply_to=[email]
             )
             try:

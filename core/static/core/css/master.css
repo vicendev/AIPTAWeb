@@ -18,15 +18,71 @@ body {
 
 .img-modelo{
   width: 100%;
+  height: 32vw;
+  object-fit: cover;
+}
+
+.img-directiva{
+  width: 100%;
   height: 15vw;
   object-fit: cover;
 }
 
-.img-formation{
+@media only screen and (max-width: 992px) {
+
+  .img-modelo{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+  }
+
+  .img-directiva{
+    width: 100%;
+    height: 80vw;
+    object-fit: cover;
+  }
+}
+
+/* .img-formation{
+  width: 100%;
+  height: 42vw;
+  object-fit: cover;
+} */
+
+.img-home{
   width: 100%;
   height: 42vw;
   object-fit: cover;
 }
+
+.img-png-titulo{
+  width: 10%; 
+  height: 10%;
+}
+
+.img-consultorio{
+  border:3px solid rgb(34, 68, 107);
+}
+
+@media only screen and (max-width: 992px) {
+
+  .img-home{
+    width: 100%;
+    height: 70vw;
+    object-fit: cover;
+  }
+
+  .img-png-titulo{
+    width: 18%; 
+    height: 18%;
+  }
+
+  .img-consultorio{
+    margin-bottom: 30px;
+    border:3px solid rgb(34, 68, 107);
+  }
+}
+
 
 .img-full-size{
   width:100%;
@@ -47,6 +103,22 @@ body {
     word-spacing: 0.15rem;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.25rem;
+  }
+
+  @media only screen and (max-width: 992px) {
+
+    p, li{
+
+      line-height: 1.6rem;
+      word-spacing: 0.15rem;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+    }
+
+    .title-formation{
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
   }
   
   
@@ -118,6 +190,17 @@ body {
     font-weight: 800;
     padding-bottom:.5rem;
   
+  }
+
+  @media only screen and (max-width: 992px) {
+
+    .section-heading .section-heading-upper {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      padding-bottom:.5rem;
+    
+    }
   }
   
   .section-heading .section-heading-lower {
@@ -334,12 +417,12 @@ body {
   }
   
   a.link{
-    color: #df902a;
+    color: #3b5998;
   }
   
   a.link:hover{
     text-decoration: none;
-    color: #e6a756 !important;
+    color: #8b9dc3 !important;
   }
   
   .section-content{
@@ -372,6 +455,43 @@ body {
   .dropdown-item{
     font-size: 1rem;
     font-family: 'Times New Roman', Times, serif;
+  }
+
+  #cke_id_content{
+    width: 250% !important;
+    margin-left: 8%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+
+    #cke_id_content{
+      width: 206% !important;
+      
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+
+    #cke_id_content{
+      width: 150% !important;
+      margin-left: 0%;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+
+    #cke_id_content{
+      width: 100% !important;
+      margin-left: 0%;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+
+    #id_pdfFile{
+      font-size: 0.8rem;
+      margin-left: 0%;
+    }
   }
 
 

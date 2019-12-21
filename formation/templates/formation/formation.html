@@ -9,9 +9,9 @@
         <div class="about-heading-content">
           <div class="row">
             <div class="col-lg-12">
-              <div class="rounded p-5 text-center">
+              <div class="rounded pr-5 pt-5 pb-5 text-center">
                 <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper">Formación</span>
+                  <span class="section-heading-upper pl-5">Formación</span>
                 </h2>
                 <div id="carouselFormation" class="carousel slide" data-ride="carousel">
                     <ul class="carousel-indicators">
@@ -19,18 +19,18 @@
                         <li data-target="#carouselFormation" data-slide-to="{{ forloop.counter0 }}" class="item {% if forloop.counter0 == 0 %}active{% endif %}"></li>
                     {% endfor %}
                     </ul>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner ml-4">
                     {% for formation in formations %}
                         <div class="carousel-item {% if forloop.first %} active {% endif %}">
-                                <img class="img-formation" src="{% if formation.image %}{{formation.image.url}}{% else %}{% static 'core/img/no-image.png'%} {% endif%}" alt="{{ formation.title }}">
+                                <img class="fill" src="{% if formation.image %}{{formation.image.url}}{% else %}{% static 'core/img/no-image.png'%} {% endif%}" alt="{{ formation.title }}">
                             <div class="carousel-caption text-carousel rounded">
-                                <h3>{{ formation.title }}</h3>
+                                <h3 class="title-formation">{{ formation.title }}</h3>
                                 <p class="carousel-p">{{ formation.content|truncatewords:50 }}</p>
                                 <a href="{{formation.image.url}}" data-lightbox="image{{formation.id}}"><p>click para más Informacion...</p></a>
                                 <!--<p><button class="btn btn-info" id="btnModal{{formation.id}}" data-toggle="modal" data-target="#modalFormation{{formation.id}}">Click para ver imagen...</button></p>-->
                                 {% if user.is_staff %}
                                   <a href="{% url 'admin:formation_formation_change' formation.id %}" class="btn btn-success" target="_blank" >Editar o Eliminar</a>
-                                {% endif%}
+                                {% endif %}
                             </div>
                         </div>
                       
@@ -39,8 +39,10 @@
                     <a class="carousel-control-prev" href="#carouselFormation" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
                     <a class="carousel-control-next" href="#carouselFormation" data-slide="next"><span class="carousel-control-next-icon"></span></a>
                 </div>
-                <div class="mt-3">
+                <div class="mt-3 ml-5">
+                  {% if user.is_staff %}
                   <a href="{% url 'admin:formation_formation_add' %}" class="btn btn-primary btn-block" target="_blank" >Agregar nuevo elemento</a>
+                  {% endif %}
                 </div>
               </div>
             </div>

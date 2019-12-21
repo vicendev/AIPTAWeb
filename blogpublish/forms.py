@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 
 class BlogForm(forms.ModelForm):
     
-    title = forms.CharField(required=True, widget=forms.TextInput(
+    title = forms.CharField(label="Título",required=True, widget=forms.TextInput(
         attrs={'class':'form-control','placeholder':'Escribe un título' }
     ), min_length=10, max_length=200)
 
-    content = forms.CharField(widget=CKEditorWidget)
+    content = forms.CharField(label="Contenido",widget=CKEditorWidget)
 
     pdfFile = forms.FileField(label='Subir Archivo' ,required=False)
 

@@ -153,18 +153,24 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Email Config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.aipsicoaarte.org'
+EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info@aipsicoaarte.org'
 EMAIL_HOST_PASSWORD = 'psicoarte123'
-EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
 
 CKEDITOR_CONFIGS = {
     'default': {
+        'skin': 'moono',
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink']
-        ]
+        ],
     }
 }

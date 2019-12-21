@@ -11,16 +11,18 @@
           <div class="about-heading-content">
             <div class="row">
               <div class="col-lg-12">
-                <div class="bg-faded rounded p-5 text-center section-content">
+                <div class="bg-faded rounded pr-5 pt-5 pb-5 text-center section-content">
                 {% for h in home %}
                   <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">{{h.title}}</span>
+                    <span class="section-heading-upper pl-5">{{h.title}}</span>
                   </h2>
                   <div class="text-left ml-5">
                   <p>
                     {{h.content|safe}}
                   </p>
+                  {% if user.is_staff %}
                   <a href="{% url 'admin:home_home_change' h.id %}" class="btn btn-success" target="_blank" >Editar</a>
+                  {% endif %}
                   {% endfor %}
                   </div>
                 </div>
@@ -46,27 +48,27 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
           <a href="{% static 'core/img/slider/home/01.jpg' %}" data-lightbox="carousel">
-            <img class="img-formation" src="{% static 'core/img/slider/home/01.jpg' %}">
+            <img class="img-home" src="{% static 'core/img/slider/home/01.jpg' %}">
           </a>
         </div>
         <div class="carousel-item">
           <a href="{% static 'core/img/slider/home/02.jpg' %}" data-lightbox="carousel">
-            <img class="img-formation" src="{% static 'core/img/slider/home/02.jpg' %}">
+            <img class="img-home" src="{% static 'core/img/slider/home/02.jpg' %}">
           </a>        
         </div>
         <div class="carousel-item">
           <a href="{% static 'core/img/slider/home/03.jpg' %}" data-lightbox="carousel">
-            <img class="img-formation" src="{% static 'core/img/slider/home/03.jpg' %}">
+            <img class="img-home" src="{% static 'core/img/slider/home/03.jpg' %}">
           </a>        
         </div>
         <div class="carousel-item">
           <a href="{% static 'core/img/slider/home/04.jpg' %}" data-lightbox="carousel">
-            <img class="img-formation" src="{% static 'core/img/slider/home/04.jpg' %}">
+            <img class="img-home" src="{% static 'core/img/slider/home/04.jpg' %}">
           </a>        
         </div>
         <div class="carousel-item">
           <a href="{% static 'core/img/slider/home/05.jpg' %}" data-lightbox="carousel">
-            <img class="img-formation" src="{% static 'core/img/slider/home/05.jpg' %}">
+            <img class="img-home" src="{% static 'core/img/slider/home/05.jpg' %}">
           </a>        
         </div>
     </div>
@@ -88,16 +90,18 @@
           <div class="about-heading-content">
             <div class="row">
               <div class="col-lg-12">
-                <div class="bg-faded rounded p-5 text-center section-content">
+                <div class="bg-faded rounded pr-5 pt-5 pb-5 text-center section-content">
                   <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">{{a.title}}</span>
+                    <span class="section-heading-upper pl-5">{{a.title}}</span>
                   </h2>
                   <div class="text-left ml-5">
                   <p>
                     {{a.content|safe}}
                   </p>
+                  {% if user.is_staff %}
                   <a href="{% url 'admin:about_about_change' a.id %}" class="btn btn-success" target="_blank" >Editar</a>
-                  </div>
+                  {% endif %}  
+                </div>
                 </div>
               </div>
             </div>
@@ -125,6 +129,10 @@
                                 <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/02.jpg' %}" alt="Image 3"/>
                               </a>
                           </div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="row">
                           <div class="col">
                               <a href="{% static 'core/img/galeria/03.jpg' %}" data-lightbox="galeria">
                                 <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/03.jpg' %}" alt="Image 4"/>
@@ -135,16 +143,16 @@
                                 <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/04.jpg' %}" alt="Image 5"/>
                               </a>
                           </div>
+                          <div class="col">
+                            <a href="{% static 'core/img/galeria/09.jpg' %}" data-lightbox="galeria">
+                              <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/09.jpg' %}" alt="Image 10"/>
+                            </a>
+                          </div>
                       </div>
                   </div>
           
                   <div class="carousel-item">
                       <div class="row">
-                          <div class="col">
-                              <a href="{% static 'core/img/galeria/05.jpg' %}" data-lightbox="galeria">
-                                <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/05.jpg' %}" alt="Image 6"/>
-                              </a>
-                          </div>
                           <div class="col">
                               <a href="{% static 'core/img/galeria/06.jpg' %}" data-lightbox="galeria">
                                 <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/06.jpg' %}" alt="Image 7"/>
@@ -158,11 +166,6 @@
                           <div class="col">
                               <a href="{% static 'core/img/galeria/08.jpg' %}" data-lightbox="galeria">
                                 <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/08.jpg' %}" alt="Image 9"/>
-                              </a>
-                          </div>
-                          <div class="col">
-                              <a href="{% static 'core/img/galeria/09.jpg' %}" data-lightbox="galeria">
-                                <img class="img-fluid img-modelo" src="{% static 'core/img/galeria/09.jpg' %}" alt="Image 10"/>
                               </a>
                           </div>
                       </div>
@@ -194,7 +197,7 @@
               </div>
             <div class="col-lg-3">
               <div class="ml-5">
-                  <a href="#" data-toggle="modal" data-target="#modalPerfil_00"><img class="rounded-circle img-modelo" src="{% static 'core/img/DM_perfil.jpg' %}" ></a>
+                  <a href="#" data-toggle="modal" data-target="#modalPerfil_00"><img class="rounded-circle img-directiva" src="{% static 'core/img/DM_perfil.jpg' %}" ></a>
               </div>
               <div>
                 <h5 class="ml-4">Presidente</h5>
@@ -203,7 +206,7 @@
             </div>
             <div class="col-lg-3">
                 <div class="ml-5">
-                    <a href="#" data-toggle="modal" data-target="#modalPerfil_01"><img class="rounded-circle img-modelo" src="{% static 'core/img/CI_perfil.jpg' %}" ></a>
+                    <a href="#" data-toggle="modal" data-target="#modalPerfil_01"><img class="rounded-circle img-directiva" src="{% static 'core/img/CI_perfil.jpg' %}" ></a>
                 </div>
                 <div>
                   <h5 class="ml-4">Vice Presidente</h5>
@@ -212,7 +215,7 @@
             </div>
             <div class="col-lg-3">
               <div class="ml-5">
-                  <img class="rounded-circle img-modelo" src="{% static 'core/img/02-perfil.jpg' %}" >
+                  <img class="rounded-circle img-directiva" src="{% static 'core/img/02-perfil.jpg' %}" >
                 </div>
                 <div>
                   <h5 class="ml-4">Secretaria Cientifica</h5>
@@ -221,7 +224,7 @@
             </div>
             <div class="col-lg-3">
               <div class="ml-5">
-                  <img class="rounded-circle img-modelo" src="{% static 'core/img/02-perfil.jpg' %}" >
+                  <img class="rounded-circle img-directiva" src="{% static 'core/img/02-perfil.jpg' %}" >
                 </div>
                 <div>
                   <h5 class="ml-4">Tesorera</h5>
@@ -231,7 +234,7 @@
           </div>
           <div class="col-lg-12">
             <div class="text-center pb-4 pt-2">
-              <a style="border: black solid 1px;" href="#" data-toggle="modal" data-target="#otrosMiembros">Integrantes</a>
+              <u><a href="#" data-toggle="modal" data-target="#otrosMiembros">Integrantes</a></u>
             </div>
           </div>
         </div>
